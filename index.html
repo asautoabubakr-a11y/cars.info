@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>معرض السيارات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="#home" aria-label="الصفحة الرئيسية">
+        <img class="brand-logo" src="assets/logo.png" alt="Abubakr Cars">
+        <span>Abubakr Cars</span>
+      </a>
+      <div class="nav-links" aria-label="روابط الموقع">
+        <a href="#banks">البنوك</a>
+        <a href="#callScript">سكربت المكالمة</a>
+        <a href="#calculator">حاسبة القسط</a>
+      </div>
+      <div class="theme-switcher" aria-label="تغيير ألوان الموقع">
+        <button class="theme-button" type="button" data-theme-button="light">أبيض</button>
+        <button class="theme-button" type="button" data-theme-button="black">أسود</button>
+        <button class="theme-button" type="button" data-theme-button="night">ليلي</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">اختيارات سيارات وتمويل في مكان واحد</p>
+        <h1>معرض السيارات</h1>
+        <p class="hero-copy">اعرض موديلات السيارات، مواصفاتها، والبنوك المتاحة للتقسيط مع حاسبة قسط سهلة للعميل.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#banks">شوف البنوك</a>
+          <a class="button secondary" href="#calculator">احسب القسط</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="banks" class="section muted">
+      <div class="section-head">
+        <h2>البنوك والشركات المتعامل معها</h2>
+      </div>
+      <div id="banksGrid" class="grid banks-grid" aria-live="polite"></div>
+    </section>
+
+    <section id="bankPolicy" class="section bank-policy-page" hidden aria-live="polite"></section>
+
+    <section id="carDetail" class="section car-detail-page" hidden aria-live="polite"></section>
+
+    <section id="installmentReceipt" class="installment-receipt" hidden aria-live="polite"></section>
+
+    <section id="callScript" class="section call-script-section muted">
+      <div class="section-head">
+        <p class="eyebrow">متابعة العميل</p>
+        <h2>سكربت مكالمة مع العميل</h2>
+      </div>
+
+      <div class="call-script-card">
+        <div class="call-script-step">
+          <span>1</span>
+          <div>
+            <h3>الافتتاح</h3>
+            <p>صباح الخير / مساء الخير حسب الشفت. معاك فلان من معرض الشيخ علي.</p>
+            <p class="script-line">أستاذ / مهندس كذا، اتشرفنا بحضرتك.</p>
+            <p class="wait-line">انتظر رد العميل.</p>
+          </div>
+        </div>
+
+        <div class="call-script-step">
+          <span>2</span>
+          <div>
+            <h3>تحديد الاستفسار</h3>
+            <p>استفسارك عن إيه يا فندم؟ عربية نقل، حصيرة، شيفروليه، أو موديل معين؟</p>
+            <p class="script-line">نسمع احتياج العميل ونحدد العربية أو الفئة المطلوبة حسب استفساره.</p>
+          </div>
+        </div>
+
+        <div class="call-script-step split-step">
+          <span>3</span>
+          <div>
+            <h3>كاش ولا قسط؟</h3>
+            <div class="script-options">
+              <article>
+                <h4>لو كاش</h4>
+                <p>نقول للعميل السعر، ونوضح إن السعر النهائي بيتأكد وقت التنفيذ.</p>
+                <p>واتشرفت بحضرتك، هتشرفني إمتى؟ ونبعت له لوكيشن المعرض أو ناخد ميعاد زيارة.</p>
+              </article>
+              <article>
+                <h4>لو قسط</h4>
+                <p>حضرتك معاك مقدم معين، ولا عاوز تدفع أقل مقدم؟</p>
+                <p>لو أقل مقدم نحسب ونشتغل على الحاسبة.</p>
+                <p>لو المقدم أعلى من 25% ندخله بنك كريدي أو شركة درايف، ونبدأ نقوله القسط الشهري.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="call-script-step">
+          <span>4</span>
+          <div>
+            <h3>تأكيد الحجز والعربون</h3>
+            <p>علشان نثبت جدية الحجز ونضمن لحضرتك متابعة الطلب، يتم دفع عربون للشركة 5,000 جنيه أو أي مبلغ أعلى أو أقل حسب الاتفاق.</p>
+            <p class="script-line">طرق الدفع: تحويل على رقم حساب الشركة، أو التحويل من خلال البنك، أو الحضور للمعرض والدفع في الخزنة.</p>
+            <p>المبلغ يتم استرداده في حالة عدم استكمال الإجراءات، أو رفض التمويل من البنك، أو وجود ظروف طارئة مع العميل، أو عدم توافر السيارة المطلوبة.</p>
+            <p class="script-line">وفي حالة استكمال باقي الإجراءات، يتم خصم مبلغ العربون من المقدم المدفوع.</p>
+          </div>
+        </div>
+
+        <div class="call-script-step">
+          <span>5</span>
+          <div>
+            <h3>المتابعة والقفل</h3>
+            <p>نوضح للعميل تفاصيل القسط وسياسة البنك أو الشركة، ونكمل معاه خطوة بخطوة لحد تحديد الميعاد أو إرسال اللوكيشن.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculator" class="section calculator-section">
+      <div class="section-head">
+        <p class="eyebrow">تمويل السيارة</p>
+        <h2>حاسبة القسط</h2>
+      </div>
+
+      <div class="calculator-layout">
+        <form id="installmentForm" class="calculator" autocomplete="off">
+          <label>
+            البنك أو الشركة
+            <select id="bankSelect"></select>
+          </label>
+
+          <label>
+            نوع السيارة لضريبة فرق الكاش
+            <select id="carTypeSelect">
+              <option value="pickup">بيك أب / ربع نقل</option>
+              <option value="hilux">هايلوكس</option>
+              <option value="jmc">JMC</option>
+              <option value="microbus">ميكروباص</option>
+              <option value="jumbo">جامبو</option>
+              <option value="sevenSeats">7 راكب</option>
+              <option value="passenger">ملاكي</option>
+              <option value="zymex">زيمكس</option>
+              <option value="other">أخرى</option>
+            </select>
+          </label>
+
+          <label>
+            سعر السيارة
+            <input id="carPrice" type="number" min="0" step="1000" placeholder="مثال: 900000">
+          </label>
+
+          <label>
+            المقدم
+            <input id="downPayment" type="number" min="0" step="1000" placeholder="مثال: 250000">
+          </label>
+
+          <div class="fields-row">
+            <label>
+              عدد السنوات
+              <input id="years" type="number" min="1" max="10" step="1" value="5">
+            </label>
+            <label>
+              نسبة القسط %
+              <input id="interestRate" type="number" min="0" step="0.1">
+            </label>
+          </div>
+
+          <label>
+            مصاريف إدارية %
+            <input id="adminFee" type="number" min="0" step="0.1">
+          </label>
+
+          <button class="button primary full" type="submit">احسب القسط</button>
+          <p id="bankEligibilityNote" class="form-note"></p>
+        </form>
+
+        <aside class="result-panel" aria-live="polite">
+          <span class="result-label">القسط الشهري التقريبي</span>
+          <strong id="monthlyPayment">0 جنيه</strong>
+          <div class="result-details">
+            <p><span>قيمة التمويل</span><b id="loanAmount">0 جنيه</b></p>
+            <p><span>إجمالي الفوائد</span><b id="totalInterest">0 جنيه</b></p>
+            <p><span>المصاريف الإدارية</span><b id="adminFeeAmount">0 جنيه</b></p>
+            <p><span>تأمين إجباري</span><b id="insuranceAmount">0 جنيه</b></p>
+            <p><span>مصاريف على المتبقي</span><b id="remainingAdminAmount">0 جنيه</b></p>
+            <p><span>ضريبة فرق الكاش</span><b id="cashDifferenceAmount">0 جنيه</b></p>
+            <p><span>إجمالي المقدم التقريبي</span><b id="upfrontTotalAmount">0 جنيه</b></p>
+            <p><span>إجمالي السداد</span><b id="totalPayment">0 جنيه</b></p>
+          </div>
+          <p class="note">الأرقام تقريبية، وشروط الموافقة النهائية بتتحدد حسب سياسة كل بنك.</p>
+          <button id="downloadMainInstallment" class="button secondary full result-download" type="button">تحميل القسط PDF</button>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> معرض السيارات. جميع الحقوق محفوظة أبوبكر للسيارات.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
