@@ -1,4 +1,5 @@
 const getLocalImagePaths = (folder, fileNames) => fileNames.map((fileName) => `${folder}/${fileName}`);
+const carPlaceholderImage = "assets/placeholder.png";
 
 const chevroletDabbabahEmptyImages = getLocalImagePaths("img/شيفورلية/دبابة/دبابة فاضية2026", [
   "20250619_145309.jpg",
@@ -206,6 +207,151 @@ const cars = [
       "الفئة": "الفئة الثانية",
       "الموتور": "1500 سي سي",
       "التجهيزات": "باور - تكييف - زجاج كهرباء"
+    }
+  },
+  {
+    name: "جوي لونج A4 Baseline بنزين",
+    category: "ميكروباص",
+    price: 1249900,
+    image: "assets/placeholder.png",
+    specs: {
+      "الموديل": "A4",
+      "الفئة": "Baseline",
+      "سنة الصنع": "2026",
+      "المحرك": "2200CC - بنزين",
+      "السعر الرسمي": "1,249,900 جنيه"
+    }
+  },
+  {
+    name: "جوي لونج A4 Highline بنزين",
+    category: "ميكروباص",
+    price: 1334900,
+    image: "assets/placeholder.png",
+    specs: {
+      "الموديل": "A4",
+      "الفئة": "Highline",
+      "سنة الصنع": "2026",
+      "المحرك": "2200CC - بنزين",
+      "السعر الرسمي": "1,334,900 جنيه"
+    }
+  },
+  {
+    name: "جوي لونج A4 Baseline ديزل",
+    category: "ميكروباص",
+    price: 1479900,
+    image: "assets/placeholder.png",
+    specs: {
+      "الموديل": "A4",
+      "الفئة": "Baseline",
+      "سنة الصنع": "2026",
+      "المحرك": "2500CC تربو - ديزل",
+      "السعر الرسمي": "1,479,900 جنيه"
+    }
+  },
+  {
+    name: "جوي لونج A4 Highline ديزل",
+    category: "ميكروباص",
+    price: 1539900,
+    image: "assets/placeholder.png",
+    specs: {
+      "الموديل": "A4",
+      "الفئة": "Highline",
+      "سنة الصنع": "2026",
+      "المحرك": "2500CC تربو - ديزل",
+      "السعر الرسمي": "1,539,900 جنيه"
+    }
+  },
+  {
+    name: "جوي لونج A5 Highline بنزين",
+    category: "ميكروباص",
+    price: 1699900,
+    image: "assets/placeholder.png",
+    specs: {
+      "الموديل": "A5",
+      "الفئة": "Highline",
+      "سنة الصنع": "2026",
+      "المحرك": "2400CC - بنزين",
+      "السعر الرسمي": "1,699,900 جنيه"
+    }
+  },
+  {
+    name: "جوي لونج A5 Topline ديزل 2500",
+    category: "ميكروباص",
+    price: 1859900,
+    image: "assets/placeholder.png",
+    specs: {
+      "الموديل": "A5",
+      "الفئة": "Topline",
+      "سنة الصنع": "2026",
+      "المحرك": "2500CC تربو - ديزل",
+      "السعر الرسمي": "1,859,900 جنيه"
+    }
+  },
+  {
+    name: "جوي لونج A5 Baseline ديزل 3000",
+    category: "ميكروباص",
+    price: 1829900,
+    image: "assets/placeholder.png",
+    specs: {
+      "الموديل": "A5",
+      "الفئة": "Baseline",
+      "سنة الصنع": "2026",
+      "المحرك": "3000CC تربو - ديزل",
+      "السعر الرسمي": "1,829,900 جنيه"
+    }
+  },
+  {
+    name: "جوي لونج A5 Topline ديزل 3000",
+    category: "ميكروباص",
+    price: 1929900,
+    image: "assets/placeholder.png",
+    specs: {
+      "الموديل": "A5",
+      "الفئة": "Topline",
+      "سنة الصنع": "2026",
+      "المحرك": "3000CC تربو - ديزل",
+      "السعر الرسمي": "1,929,900 جنيه"
+    }
+  },
+  {
+    name: "جوي لونج A5 Topline ديزل 3000 إيرباج",
+    category: "ميكروباص",
+    price: 1959900,
+    image: "assets/placeholder.png",
+    specs: {
+      "الموديل": "A5",
+      "الفئة": "Topline",
+      "سنة الصنع": "2026",
+      "المحرك": "3000CC تربو - ديزل",
+      "التجهيزات": "عدد 2 وسائد هوائية",
+      "السعر الرسمي": "1,959,900 جنيه"
+    }
+  },
+  {
+    name: "جوي لونج EA5 Luxury Edition",
+    category: "ميكروباص كهرباء",
+    price: 2989900,
+    image: "assets/placeholder.png",
+    specs: {
+      "الموديل": "EA5",
+      "الفئة": "Luxury Edition",
+      "سنة الصنع": "2026",
+      "المحرك": "CCS2 - 102 KW",
+      "السعر الرسمي": "2,989,900 جنيه"
+    }
+  },
+  {
+    name: "جوي لونج A6 Luxury Edition",
+    category: "ميكروباص",
+    price: 2499900,
+    image: "assets/placeholder.png",
+    specs: {
+      "الموديل": "A6",
+      "الفئة": "Luxury Edition",
+      "سنة الصنع": "2026",
+      "المحرك": "3000CC تربو - ديزل",
+      "التجهيزات": "عدد 2 وسائد هوائية",
+      "السعر الرسمي": "2,499,900 جنيه"
     }
   },
   {
@@ -719,10 +865,17 @@ const dailyPrices = [
   {
     brand: "جوي لونج",
     items: [
-      { name: "A5 جاز", price: null, note: "رسمي" },
-      { name: "A4 بنزين", price: null, note: "أوفر 20" },
-      { name: "A4 جاز", price: null, note: "بالرسمي" },
-      { name: "حافز فوري على السقف العالي", price: 5000 }
+      { name: "A4 Baseline بنزين 2200CC", price: 1249900, note: "موديل 2026" },
+      { name: "A4 Highline بنزين 2200CC", price: 1334900, note: "موديل 2026" },
+      { name: "A4 Baseline ديزل 2500CC تربو", price: 1479900, note: "موديل 2026" },
+      { name: "A4 Highline ديزل 2500CC تربو", price: 1539900, note: "موديل 2026" },
+      { name: "A5 Highline بنزين 2400CC", price: 1699900, note: "موديل 2026" },
+      { name: "A5 Topline ديزل 2500CC تربو", price: 1859900, note: "موديل 2026" },
+      { name: "A5 Baseline ديزل 3000CC تربو", price: 1829900, note: "موديل 2026" },
+      { name: "A5 Topline ديزل 3000CC تربو", price: 1929900, note: "موديل 2026" },
+      { name: "A5 Topline ديزل 3000CC تربو + 2 إيرباج", price: 1959900, note: "موديل 2026" },
+      { name: "EA5 Luxury Edition", price: 2989900, note: "CCS2 - 102 KW" },
+      { name: "A6 Luxury Edition ديزل 3000CC تربو + 2 إيرباج", price: 2499900, note: "موديل 2026" }
     ]
   },
   {
@@ -780,6 +933,9 @@ cars.forEach((car) => {
   if (todayCarPricesByName[car.name]) {
     car.price = todayCarPricesByName[car.name];
   }
+
+  car.image = carPlaceholderImage;
+  car.images = [carPlaceholderImage];
 });
 
 const carsGrid = document.querySelector("#carsGrid");
@@ -833,7 +989,8 @@ const carBrandGroups = [
   { title: "Nissan", matcher: /نيسان|Nissan/i },
   { title: "Suzuki", matcher: /سوزوكي|سوزوكى|Suzuki/i },
   { title: "Isuzu", matcher: /إيسوزو|ايسوزو|Isuzu/i },
-  { title: "Toyota", matcher: /تويوتا|Toyota/i }
+  { title: "Toyota", matcher: /تويوتا|Toyota/i },
+  { title: "Joylong", matcher: /جوي لونج|Joylong/i }
 ];
 
 function getCarBrandGroup(car) {
@@ -948,6 +1105,7 @@ function guessCarType(car) {
   const text = `${car.name} ${car.category}`;
 
   if (/JMC/i.test(text)) return "jmc";
+  if (/جوي لونج|Joylong|A4|A5|A6|EA5/i.test(text)) return "microbus";
   if (/ط¬ط§ظ…ط¨ظˆ|جامبو/.test(text)) return "jumbo";
   if (/ظ…ظٹظƒط±ظˆ|ميكرو/.test(text)) return "microbus";
   if (/7|سبعة|راكب|ط±ط§ظƒط¨/.test(text)) return "sevenSeats";
