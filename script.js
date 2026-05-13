@@ -651,7 +651,139 @@ const currencyFormatter = new Intl.NumberFormat("ar-EG", {
   maximumFractionDigits: 0
 });
 
+const dailyPrices = [
+  {
+    brand: "شيفروليه",
+    items: [
+      { name: "دبابة باور أبيض", price: 1125000 },
+      { name: "دبابة باور أحمر", price: 1125000 },
+      { name: "دبابة باور أخضر", price: 1135000 },
+      { name: "جامبو فاضي موديل 2027", price: 1670000 },
+      { name: "جامبو مكيف موديل 2027", price: 1760000 },
+      { name: "جامبو 8000", price: 2220000 }
+    ]
+  },
+  {
+    brand: "إيسوزو",
+    items: [
+      { name: "كاملة موديل 2026", price: 1925000 },
+      { name: "حصيرة موديل 2026", price: 1790000 },
+      { name: "حصيرة كاملة موديل 2026", price: 1850000 },
+      { name: "حصيرة 136 حصان", price: 1500000, note: "دعامة وعتب" },
+      { name: "جامبو مكنة قديمة موديل 2026", price: 2180000 },
+      { name: "جامبو حقن", price: 2050000 }
+    ]
+  },
+  {
+    brand: "هايلوكس",
+    items: [
+      { name: "رباعي عماني موديل 2026", price: 2580000, note: "ديفلوك" },
+      { name: "دوبل كابينة موديل 2026", price: 3930000 }
+    ]
+  },
+  {
+    brand: "KYC",
+    items: [
+      { name: "فرش جلد", price: 675000 },
+      { name: "فرش قماش", price: 670000 }
+    ]
+  },
+  {
+    brand: "ميكروباص قصراوي",
+    items: [
+      { name: "جاز", price: 1225000 },
+      { name: "كارب", price: 1100000 },
+      { name: "إنجك فاضي", price: 1070000 }
+    ]
+  },
+  {
+    brand: "كنج لونج",
+    items: [
+      { name: "كارب فاضي موديل 2027", price: 1065000 },
+      { name: "جاز موديل 2027", price: 1160000 }
+    ]
+  },
+  {
+    brand: "زيمكس",
+    items: [
+      { name: "إنجك فاضي موديل 2027", price: 945000 }
+    ]
+  },
+  {
+    brand: "فوتون",
+    items: [
+      { name: "C2 موديل 2027", price: 1180000 },
+      { name: "واندر", price: 565000 }
+    ]
+  },
+  {
+    brand: "جوي لونج",
+    items: [
+      { name: "A5 جاز", price: null, note: "رسمي" },
+      { name: "A4 بنزين", price: null, note: "أوفر 20" },
+      { name: "A4 جاز", price: null, note: "بالرسمي" },
+      { name: "حافز فوري على السقف العالي", price: 5000 }
+    ]
+  },
+  {
+    brand: "نيسان",
+    items: [
+      { name: "نافارا صندوق", price: 1335000 }
+    ]
+  },
+  {
+    brand: "JMC",
+    items: [
+      { name: "جامبو", price: 895000 },
+      { name: "ربع نقل", price: 730000 }
+    ]
+  },
+  {
+    brand: "جاك",
+    items: [
+      { name: "3 طن", price: 930000 },
+      { name: "5.5 طن", price: 1140000 }
+    ]
+  },
+  {
+    brand: "سوزوكي",
+    items: [
+      { name: "فان", price: 560000 }
+    ]
+  }
+];
+
+const todayCarPricesByName = {
+  "شيفروليه ربع نقل TFR": 1125000,
+  "دبابة شيفروليه فاضية ربع نقل": 1125000,
+  "شيفروليه جامبو 7000": 1670000,
+  "شيفروليه NQR 8000": 2220000,
+  "JMC ربع نقل": 730000,
+  "JMC Carrying نصف نقل جامبو": 895000,
+  "KYC نقل ركاب": 675000,
+  "KYC نقل بضائع": 670000,
+  "نيسان نافارا صندوق": 1335000,
+  "سوزوكي فان 7 راكب": 560000,
+  "إيسوزو RBC": 1925000,
+  "إيسوزو حصيرة 79 حصان": 1790000,
+  "إيسوزو حصيرة 109 حصان": 1850000,
+  "إيسوزو حصيرة 136 حصان تايلاندي": 1500000,
+  "إيسوزو حصيرة 136 حصان هندي ستاندرد": 1500000,
+  "إيسوزو حصيرة 136 حصان هندي معدلة": 1500000,
+  "إيسوزو جامبو مكنة قديمة": 2180000,
+  "إيسوزو جامبو مكنة جديدة": 2050000,
+  "Toyota دفع رباعي وارد عمان": 2580000,
+  "Toyota دوبل كابينة أوتوماتيك": 3930000
+};
+
+cars.forEach((car) => {
+  if (todayCarPricesByName[car.name]) {
+    car.price = todayCarPricesByName[car.name];
+  }
+});
+
 const carsGrid = document.querySelector("#carsGrid");
+const dailyPricesGrid = document.querySelector("#dailyPricesGrid");
 const banksGrid = document.querySelector("#banksGrid");
 const bankPolicyPage = document.querySelector("#bankPolicy");
 const carDetailPage = document.querySelector("#carDetail");
@@ -679,6 +811,17 @@ const downloadMainInstallment = document.querySelector("#downloadMainInstallment
 const themeButtons = document.querySelectorAll("[data-theme-button]");
 const mainSections = document.querySelectorAll("main > section:not(#bankPolicy):not(#carDetail):not(#installmentReceipt)");
 const defaultDocumentTitle = document.title;
+const fallbackCarTypeOptions = [
+  { value: "pickup", text: "بيك أب / ربع نقل" },
+  { value: "hilux", text: "هايلوكس" },
+  { value: "jmc", text: "JMC" },
+  { value: "microbus", text: "ميكروباص" },
+  { value: "jumbo", text: "جامبو" },
+  { value: "sevenSeats", text: "7 راكب" },
+  { value: "passenger", text: "ملاكي" },
+  { value: "zymex", text: "زيمكس" },
+  { value: "other", text: "أخرى" }
+];
 
 function formatCurrency(value) {
   return currencyFormatter.format(Math.max(0, Math.round(value)));
@@ -696,6 +839,27 @@ const carBrandGroups = [
 function getCarBrandGroup(car) {
   const text = `${car.name} ${car.category}`;
   return carBrandGroups.find((group) => group.matcher.test(text))?.title || "ماركات أخرى";
+}
+
+function renderDailyPrices() {
+  if (!dailyPricesGrid) {
+    return;
+  }
+
+  dailyPricesGrid.innerHTML = dailyPrices.map((group) => `
+    <article class="daily-price-card">
+      <h3>${group.brand}</h3>
+      <div class="daily-price-list">
+        ${group.items.map((item) => `
+          <div class="daily-price-item">
+            <span>${item.name}</span>
+            <b>${item.price ? formatCurrency(item.price) : item.note || "حسب الرسمي"}</b>
+            ${item.price && item.note ? `<p class="daily-price-note">${item.note}</p>` : ""}
+          </div>
+        `).join("")}
+      </div>
+    </article>
+  `).join("");
 }
 
 function renderCars() {
@@ -736,16 +900,20 @@ function renderCars() {
 }
 
 function renderBanks() {
-  banksGrid.innerHTML = banks.map((bank, index) => `
-    <a class="card bank-card bank-link" href="#bank-policy-${index}" aria-label="عرض سياسة ${bank.name}">
-      <h3>${bank.name}</h3>
-      <span class="bank-card-action">عرض السياسة</span>
-    </a>
-  `).join("");
+  if (banksGrid) {
+    banksGrid.innerHTML = banks.map((bank, index) => `
+      <a class="card bank-card bank-link" href="#bank-policy-${index}" aria-label="عرض سياسة ${bank.name}">
+        <h3>${bank.name}</h3>
+        <span class="bank-card-action">عرض السياسة</span>
+      </a>
+    `).join("");
+  }
 
-  bankSelect.innerHTML = banks.map((bank, index) => `
-    <option value="${index}">${bank.name}</option>
-  `).join("");
+  if (bankSelect) {
+    bankSelect.innerHTML = banks.map((bank, index) => `
+      <option value="${index}">${bank.name}</option>
+    `).join("");
+  }
 }
 
 function getBankSummaryItems(bank) {
@@ -759,9 +927,14 @@ function getBankSummaryItems(bank) {
   ];
 }
 
-function getCarTypeOptionsMarkup(selectedValue = carTypeSelect.value) {
-  return Array.from(carTypeSelect.options).map((option) => `
-    <option value="${option.value}"${option.value === selectedValue ? " selected" : ""}>${option.textContent}</option>
+function getCarTypeOptionsMarkup(selectedValue = carTypeSelect?.value || "pickup") {
+  const options = carTypeSelect ? Array.from(carTypeSelect.options).map((option) => ({
+    value: option.value,
+    text: option.textContent
+  })) : fallbackCarTypeOptions;
+
+  return options.map((option) => `
+    <option value="${option.value}"${option.value === selectedValue ? " selected" : ""}>${option.text}</option>
   `).join("");
 }
 
@@ -854,6 +1027,10 @@ function getInstallmentResultItems(result) {
 }
 
 function printInstallmentPdf({ bankName, title, result }) {
+  if (!installmentReceipt || !result) {
+    return;
+  }
+
   installmentReceipt.innerHTML = `
     <article class="receipt-card">
       <p class="receipt-label">نتيجة حاسبة القسط</p>
@@ -882,6 +1059,10 @@ function renderBankPolicy(index) {
 
   if (!bank) {
     window.location.hash = "banks";
+    return;
+  }
+
+  if (!bankPolicyPage) {
     return;
   }
 
@@ -981,7 +1162,7 @@ function renderBankPolicy(index) {
 
 function updatePolicyCalculator(index) {
   const bank = banks[index];
-  const formElement = bankPolicyPage.querySelector("[data-policy-calculator]");
+  const formElement = bankPolicyPage?.querySelector("[data-policy-calculator]");
   if (!bank || !formElement) {
     return null;
   }
@@ -1030,9 +1211,9 @@ function updatePolicyCalculator(index) {
 }
 
 function setupPolicyPageActions(index) {
-  const formElement = bankPolicyPage.querySelector("[data-policy-calculator]");
-  const printButton = bankPolicyPage.querySelector("[data-policy-print]");
-  const installmentButton = bankPolicyPage.querySelector("[data-policy-installment-pdf]");
+  const formElement = bankPolicyPage?.querySelector("[data-policy-calculator]");
+  const printButton = bankPolicyPage?.querySelector("[data-policy-print]");
+  const installmentButton = bankPolicyPage?.querySelector("[data-policy-installment-pdf]");
 
   if (formElement) {
     formElement.addEventListener("input", () => updatePolicyCalculator(index));
@@ -1068,6 +1249,10 @@ function renderCarDetail(index) {
 
   if (!car) {
     window.location.hash = "cars";
+    return;
+  }
+
+  if (!carDetailPage) {
     return;
   }
 
@@ -1188,7 +1373,7 @@ function applyCarCalculatorBankRates(formElement) {
 }
 
 function updateCarCalculator() {
-  const formElement = carDetailPage.querySelector("[data-car-calculator]");
+  const formElement = carDetailPage?.querySelector("[data-car-calculator]");
   if (!formElement) {
     return null;
   }
@@ -1237,8 +1422,8 @@ function updateCarCalculator() {
 }
 
 function setupCarDetailActions() {
-  const formElement = carDetailPage.querySelector("[data-car-calculator]");
-  const installmentButton = carDetailPage.querySelector("[data-car-installment-pdf]");
+  const formElement = carDetailPage?.querySelector("[data-car-calculator]");
+  const installmentButton = carDetailPage?.querySelector("[data-car-installment-pdf]");
   if (!formElement) {
     return;
   }
@@ -1274,6 +1459,10 @@ function setupCarDetailActions() {
 }
 
 function showBankPolicy(index) {
+  if (!bankPolicyPage || !carDetailPage) {
+    return;
+  }
+
   renderBankPolicy(index);
   mainSections.forEach((section) => {
     section.hidden = true;
@@ -1284,6 +1473,10 @@ function showBankPolicy(index) {
 }
 
 function showCarDetail(index) {
+  if (!bankPolicyPage || !carDetailPage) {
+    return;
+  }
+
   renderCarDetail(index);
   mainSections.forEach((section) => {
     section.hidden = true;
@@ -1297,8 +1490,12 @@ function showMainSections() {
   mainSections.forEach((section) => {
     section.hidden = false;
   });
-  bankPolicyPage.hidden = true;
-  carDetailPage.hidden = true;
+  if (bankPolicyPage) {
+    bankPolicyPage.hidden = true;
+  }
+  if (carDetailPage) {
+    carDetailPage.hidden = true;
+  }
 
   const targetId = window.location.hash.replace("#", "");
   const targetSection = targetId ? document.getElementById(targetId) : null;
@@ -1327,6 +1524,10 @@ function handleRoute() {
 }
 
 function applyBankRates() {
+  if (!bankSelect || !years || !interestRate || !adminFee) {
+    return;
+  }
+
   const selectedBank = banks[Number(bankSelect.value)] || banks[0];
   years.max = selectedBank.maxYears || 10;
   if (selectedBank.maxYears && Number(years.value) > selectedBank.maxYears) {
@@ -1339,6 +1540,10 @@ function applyBankRates() {
 }
 
 function calculateInstallment() {
+  if (!bankSelect || !carPrice || !downPayment || !years || !interestRate || !adminFee || !carTypeSelect) {
+    return null;
+  }
+
   const selectedBank = banks[Number(bankSelect.value)] || banks[0];
   const result = computeInstallment(selectedBank, {
     price: carPrice.value,
@@ -1378,6 +1583,7 @@ function setTheme(themeName) {
   });
 }
 
+renderDailyPrices();
 renderCars();
 renderBanks();
 applyBankRates();
@@ -1385,28 +1591,38 @@ calculateInstallment();
 setTheme(localStorage.getItem("siteTheme") || "night");
 handleRoute();
 
-bankSelect.addEventListener("change", () => {
-  applyBankRates();
-  calculateInstallment();
-});
-
-years.addEventListener("input", applyBankRates);
-carTypeSelect.addEventListener("change", calculateInstallment);
-form.addEventListener("input", calculateInstallment);
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  calculateInstallment();
-});
-
-downloadMainInstallment.addEventListener("click", () => {
-  const selectedBank = banks[Number(bankSelect.value)] || banks[0];
-  const result = calculateInstallment();
-  printInstallmentPdf({
-    bankName: selectedBank.name,
-    title: "القسط الشهري",
-    result
+if (bankSelect) {
+  bankSelect.addEventListener("change", () => {
+    applyBankRates();
+    calculateInstallment();
   });
-});
+}
+
+if (years) {
+  years.addEventListener("input", applyBankRates);
+}
+if (carTypeSelect) {
+  carTypeSelect.addEventListener("change", calculateInstallment);
+}
+if (form) {
+  form.addEventListener("input", calculateInstallment);
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    calculateInstallment();
+  });
+}
+
+if (downloadMainInstallment) {
+  downloadMainInstallment.addEventListener("click", () => {
+    const selectedBank = banks[Number(bankSelect.value)] || banks[0];
+    const result = calculateInstallment();
+    printInstallmentPdf({
+      bankName: selectedBank.name,
+      title: "القسط الشهري",
+      result
+    });
+  });
+}
 
 themeButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -1418,8 +1634,13 @@ window.addEventListener("hashchange", handleRoute);
 window.addEventListener("afterprint", () => {
   document.body.classList.remove("print-policy");
   document.body.classList.remove("print-installment");
-  installmentReceipt.hidden = true;
+  if (installmentReceipt) {
+    installmentReceipt.hidden = true;
+  }
   document.title = defaultDocumentTitle;
 });
 
-document.querySelector("#year").textContent = new Date().getFullYear();
+const yearElement = document.querySelector("#year");
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}

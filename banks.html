@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>معرض السيارات</title>
+  <title>البنوك - معرض السيارات</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -12,13 +12,13 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="#home" aria-label="الصفحة الرئيسية">
+      <a class="brand" href="index.html" aria-label="الصفحة الرئيسية">
         <img class="brand-logo" src="assets/logo.png" alt="Abubakr Cars">
         <span>Abubakr Cars</span>
       </a>
       <div class="nav-links" aria-label="روابط الموقع">
         <a href="cars.html">السيارات</a>
-        <a href="banks.html">البنوك</a>
+        <a class="active" href="banks.html">البنوك</a>
         <a href="call-script.html">سكربت المكالمة</a>
         <a href="calculator.html">حاسبة القسط</a>
       </div>
@@ -31,17 +31,16 @@
   </header>
 
   <main>
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">اختيارات سيارات وتمويل في مكان واحد</p>
-        <h1>معرض السيارات</h1>
-        <p class="hero-copy">اعرض موديلات السيارات، مواصفاتها، والبنوك المتاحة للتقسيط مع حاسبة قسط سهلة للعميل.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="cars.html">شوف السيارات</a>
-          <a class="button secondary" href="calculator.html">احسب القسط</a>
-        </div>
+    <section id="banks" class="section muted">
+      <div class="section-head">
+        <h2>البنوك والشركات المتعامل معها</h2>
       </div>
+      <div id="banksGrid" class="grid banks-grid" aria-live="polite"></div>
     </section>
+
+    <section id="bankPolicy" class="section bank-policy-page" hidden aria-live="polite"></section>
+    <section id="carDetail" class="section car-detail-page" hidden aria-live="polite"></section>
+    <section id="installmentReceipt" class="installment-receipt" hidden aria-live="polite"></section>
   </main>
 
   <footer class="footer">

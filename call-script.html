@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سكربت المكالمة - معرض السيارات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="الصفحة الرئيسية">
+        <img class="brand-logo" src="assets/logo.png" alt="Abubakr Cars">
+        <span>Abubakr Cars</span>
+      </a>
+      <div class="nav-links" aria-label="روابط الموقع">
+        <a href="cars.html">السيارات</a>
+        <a href="banks.html">البنوك</a>
+        <a class="active" href="call-script.html">سكربت المكالمة</a>
+        <a href="calculator.html">حاسبة القسط</a>
+      </div>
+      <div class="theme-switcher" aria-label="تغيير ألوان الموقع">
+        <button class="theme-button" type="button" data-theme-button="light">أبيض</button>
+        <button class="theme-button" type="button" data-theme-button="black">أسود</button>
+        <button class="theme-button" type="button" data-theme-button="night">ليلي</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="callScript" class="section call-script-section muted">
+      <div class="section-head">
+        <p class="eyebrow">متابعة العميل</p>
+        <h2>سكربت مكالمة مع العميل</h2>
+      </div>
+
+      <div class="call-script-card">
+        <div class="call-script-step">
+          <span>1</span>
+          <div>
+            <h3>الافتتاح</h3>
+            <p>صباح الخير / مساء الخير حسب الشفت. معاك فلان من معرض الشيخ علي.</p>
+            <p class="script-line">أستاذ / مهندس كذا، اتشرفنا بحضرتك.</p>
+            <p class="wait-line">انتظر رد العميل.</p>
+          </div>
+        </div>
+
+        <div class="call-script-step">
+          <span>2</span>
+          <div>
+            <h3>تحديد الاستفسار</h3>
+            <p>استفسارك عن إيه يا فندم؟ عربية نقل، حصيرة، شيفروليه، أو موديل معين؟</p>
+            <p class="script-line">نسمع احتياج العميل ونحدد العربية أو الفئة المطلوبة حسب استفساره.</p>
+          </div>
+        </div>
+
+        <div class="call-script-step split-step">
+          <span>3</span>
+          <div>
+            <h3>كاش ولا قسط؟</h3>
+            <div class="script-options">
+              <article>
+                <h4>لو كاش</h4>
+                <p>نقول للعميل السعر، ونوضح إن السعر النهائي بيتأكد وقت التنفيذ.</p>
+                <p>واتشرفت بحضرتك، هتشرفني إمتى؟ ونبعت له لوكيشن المعرض أو ناخد ميعاد زيارة.</p>
+              </article>
+              <article>
+                <h4>لو قسط</h4>
+                <p>حضرتك معاك مقدم معين، ولا عاوز تدفع أقل مقدم؟</p>
+                <p>لو أقل مقدم نحسب ونشتغل على الحاسبة.</p>
+                <p>لو المقدم أعلى من 25% ندخله بنك كريدي أو شركة درايف، ونبدأ نقوله القسط الشهري.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="call-script-step">
+          <span>4</span>
+          <div>
+            <h3>تأكيد الحجز والعربون</h3>
+            <p>علشان نثبت جدية الحجز ونضمن لحضرتك متابعة الطلب، يتم دفع عربون للشركة 5,000 جنيه أو أي مبلغ أعلى أو أقل حسب الاتفاق.</p>
+            <p class="script-line">طرق الدفع: تحويل على رقم حساب الشركة، أو التحويل من خلال البنك، أو الحضور للمعرض والدفع في الخزنة.</p>
+            <p>المبلغ يتم استرداده في حالة عدم استكمال الإجراءات، أو رفض التمويل من البنك، أو وجود ظروف طارئة مع العميل، أو عدم توافر السيارة المطلوبة.</p>
+            <p class="script-line">وفي حالة استكمال باقي الإجراءات، يتم خصم مبلغ العربون من المقدم المدفوع.</p>
+          </div>
+        </div>
+
+        <div class="call-script-step">
+          <span>5</span>
+          <div>
+            <h3>المتابعة والقفل</h3>
+            <p>نوضح للعميل تفاصيل القسط وسياسة البنك أو الشركة، ونكمل معاه خطوة بخطوة لحد تحديد الميعاد أو إرسال اللوكيشن.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> معرض السيارات. جميع الحقوق محفوظة أبوبكر للسيارات.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

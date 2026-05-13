@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حاسبة القسط - معرض السيارات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="الصفحة الرئيسية">
+        <img class="brand-logo" src="assets/logo.png" alt="Abubakr Cars">
+        <span>Abubakr Cars</span>
+      </a>
+      <div class="nav-links" aria-label="روابط الموقع">
+        <a href="cars.html">السيارات</a>
+        <a href="banks.html">البنوك</a>
+        <a href="call-script.html">سكربت المكالمة</a>
+        <a class="active" href="calculator.html">حاسبة القسط</a>
+      </div>
+      <div class="theme-switcher" aria-label="تغيير ألوان الموقع">
+        <button class="theme-button" type="button" data-theme-button="light">أبيض</button>
+        <button class="theme-button" type="button" data-theme-button="black">أسود</button>
+        <button class="theme-button" type="button" data-theme-button="night">ليلي</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="calculator" class="section calculator-section">
+      <div class="section-head">
+        <p class="eyebrow">تمويل السيارة</p>
+        <h2>حاسبة القسط</h2>
+      </div>
+
+      <div class="calculator-layout">
+        <form id="installmentForm" class="calculator" autocomplete="off">
+          <label>
+            البنك أو الشركة
+            <select id="bankSelect"></select>
+          </label>
+
+          <label>
+            نوع السيارة لضريبة فرق الكاش
+            <select id="carTypeSelect">
+              <option value="pickup">بيك أب / ربع نقل</option>
+              <option value="hilux">هايلوكس</option>
+              <option value="jmc">JMC</option>
+              <option value="microbus">ميكروباص</option>
+              <option value="jumbo">جامبو</option>
+              <option value="sevenSeats">7 راكب</option>
+              <option value="passenger">ملاكي</option>
+              <option value="zymex">زيمكس</option>
+              <option value="other">أخرى</option>
+            </select>
+          </label>
+
+          <label>
+            سعر السيارة
+            <input id="carPrice" type="number" min="0" step="1000" placeholder="مثال: 900000">
+          </label>
+
+          <label>
+            المقدم
+            <input id="downPayment" type="number" min="0" step="1000" placeholder="مثال: 250000">
+          </label>
+
+          <div class="fields-row">
+            <label>
+              عدد السنوات
+              <input id="years" type="number" min="1" max="10" step="1" value="5">
+            </label>
+            <label>
+              نسبة القسط %
+              <input id="interestRate" type="number" min="0" step="0.1">
+            </label>
+          </div>
+
+          <label>
+            مصاريف إدارية %
+            <input id="adminFee" type="number" min="0" step="0.1">
+          </label>
+
+          <button class="button primary full" type="submit">احسب القسط</button>
+          <p id="bankEligibilityNote" class="form-note"></p>
+        </form>
+
+        <aside class="result-panel" aria-live="polite">
+          <span class="result-label">القسط الشهري التقريبي</span>
+          <strong id="monthlyPayment">0 جنيه</strong>
+          <div class="result-details">
+            <p><span>قيمة التمويل</span><b id="loanAmount">0 جنيه</b></p>
+            <p><span>إجمالي الفوائد</span><b id="totalInterest">0 جنيه</b></p>
+            <p><span>المصاريف الإدارية</span><b id="adminFeeAmount">0 جنيه</b></p>
+            <p><span>تأمين إجباري</span><b id="insuranceAmount">0 جنيه</b></p>
+            <p><span>مصاريف على المتبقي</span><b id="remainingAdminAmount">0 جنيه</b></p>
+            <p><span>ضريبة فرق الكاش</span><b id="cashDifferenceAmount">0 جنيه</b></p>
+            <p><span>إجمالي المقدم التقريبي</span><b id="upfrontTotalAmount">0 جنيه</b></p>
+            <p><span>إجمالي السداد</span><b id="totalPayment">0 جنيه</b></p>
+          </div>
+          <p class="note">الأرقام تقريبية، وشروط الموافقة النهائية بتتحدد حسب سياسة كل بنك.</p>
+          <button id="downloadMainInstallment" class="button secondary full result-download" type="button">تحميل القسط PDF</button>
+        </aside>
+      </div>
+    </section>
+
+    <section id="installmentReceipt" class="installment-receipt" hidden aria-live="polite"></section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> معرض السيارات. جميع الحقوق محفوظة أبوبكر للسيارات.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
