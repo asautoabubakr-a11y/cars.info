@@ -1094,7 +1094,7 @@ function renderCarDetail(index) {
 
   carDetailPage.innerHTML = `
     <div class="policy-header">
-      <a class="button secondary" href="#banks">رجوع للبنوك</a>
+      <a class="button secondary" href="#cars">رجوع للسيارات</a>
     </div>
     <article class="policy-card car-detail-card">
       <div class="car-detail-hero">
